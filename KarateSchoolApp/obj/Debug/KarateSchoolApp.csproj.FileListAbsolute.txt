@@ -50,8 +50,6 @@ C:\Users\elias\Documents\CSCI-213\Assignment4\KarateSchoolApp\bin\roslyn\vbc.exe
 C:\Users\elias\Documents\CSCI-213\Assignment4\KarateSchoolApp\bin\roslyn\vbc.rsp
 C:\Users\elias\Documents\CSCI-213\Assignment4\KarateSchoolApp\bin\roslyn\VBCSCompiler.exe
 C:\Users\elias\Documents\CSCI-213\Assignment4\KarateSchoolApp\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\elias\Documents\CSCI-213\Assignment4\KarateSchoolApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\elias\Documents\CSCI-213\Assignment4\KarateSchoolApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\elias\Documents\CSCI-213\Assignment4\KarateSchoolApp\obj\Debug\KarateSchoolApp.csproj.AssemblyReference.cache
 C:\Users\elias\Documents\CSCI-213\Assignment4\KarateSchoolApp\obj\Debug\KarateSchoolApp.csproj.CoreCompileInputs.cache
 C:\Users\elias\Documents\CSCI-213\Assignment4\KarateSchoolApp\obj\Debug\KarateSchoolApp.csproj.CopyComplete
