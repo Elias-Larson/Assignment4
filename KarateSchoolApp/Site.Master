@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Karate School App</title>
+    <title><%: Page.Title %> - Karate School</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -14,7 +14,7 @@
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link rel="stylesheet" href="Work/Style.css">
+
 </head>
 <body>
     <form runat="server">
@@ -39,16 +39,17 @@
 
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" runat="server" href="~/">Karate School App</a>
+                <a class="navbar-brand" runat="server" href="~/">Karate School</a>
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/">Login</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Work/Administrator.aspx">Admin</a></li>
                         
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Work/Logon.aspx">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Work/Member/Member.aspx">Members</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Work/Instructor/Instructor.aspx">Instructors</a></li>
                     </ul>
                 </div>
             </div>
@@ -58,8 +59,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>Karate School App
-                </p>
+                <p>&copy; <%: DateTime.Now.Year %> - Karate School</p>
             </footer>
         </div>
     </form>

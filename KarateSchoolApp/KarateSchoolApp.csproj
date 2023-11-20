@@ -194,8 +194,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Work\Administrator.aspx" />
-    <Content Include="Work\Style.css" />
-    <Content Include="Work\TEST.html" />
+    <Content Include="Work\Instructor\Instructor.aspx" />
+    <Content Include="Work\Logon.aspx" />
+    <Content Include="Work\Member\Member.aspx" />
     <None Include="KarateSchool.dbml.layout">
       <DependentUpon>KarateSchool.dbml</DependentUpon>
     </None>
@@ -505,6 +506,20 @@
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
+    <Content Include="Work\Member\Web.config" />
+    <Content Include="Work\Instructor\Web.config" />
+    <None Include="Work\Instructor\Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Work\Instructor\Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Work\Member\Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Work\Member\Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -553,6 +568,27 @@
     </Compile>
     <Compile Include="Work\Administrator.aspx.designer.cs">
       <DependentUpon>Administrator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Work\Instructor\Instructor.aspx.cs">
+      <DependentUpon>Instructor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Work\Instructor\Instructor.aspx.designer.cs">
+      <DependentUpon>Instructor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Work\Logon.aspx.cs">
+      <DependentUpon>Logon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Work\Logon.aspx.designer.cs">
+      <DependentUpon>Logon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Work\Member\Member.aspx.cs">
+      <DependentUpon>Member.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Work\Member\Member.aspx.designer.cs">
+      <DependentUpon>Member.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

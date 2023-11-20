@@ -10,16 +10,22 @@ namespace KarateSchoolApp.Work
 {
     public partial class Administrator : System.Web.UI.Page
     {
-        string connString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\elias\\Documents\\CSCI-213\\Assignment4\\KarateSchoolApp\\App_Data\\KarateSchool.mdf;Integrated Security=True;Connect Timeout=30";
+        string connString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\elias\\Documents\\CSCI-213\\Assignment4\\Elias-Larson\\Assignment4\\KarateSchoolApp\\App_Data\\KarateSchool.mdf;Integrated Security=True;Connect Timeout=30";
         KarateSchoolDataContext dbcon;
         protected void Page_Load(object sender, EventArgs e)
         {
             dbcon = new KarateSchoolDataContext(connString);
-            
+
             //Retrieve members and display
             var resultMembers = from item in dbcon.Members
-                                select new { item.Member_UserID, item.MemberFirstName, item.MemberLastName, 
-                                            item.MemberPhoneNumber, item.MemberDateJoined };
+                                select new
+                                {
+                                    item.Member_UserID,
+                                    item.MemberFirstName,
+                                    item.MemberLastName,
+                                    item.MemberPhoneNumber,
+                                    item.MemberDateJoined
+                                };
             //Show result
             MemberGridView.DataSource = resultMembers;
             MemberGridView.DataBind();
@@ -30,8 +36,6 @@ namespace KarateSchoolApp.Work
             //Show result
             InstructorGridView.DataSource = resultInstructors;
             InstructorGridView.DataBind();
-            
-            
 
         }
 
@@ -57,7 +61,7 @@ namespace KarateSchoolApp.Work
 
             try
             {
-                using(SqlConnection conn = new SqlConnection(connString))
+                using (SqlConnection conn = new SqlConnection(connString))
                 {
                     userType = DropDownListType.SelectedValue;
                     string insertQuery = "INSERT INTO NetUser(UserName, UserPassword, UserType)" +
@@ -69,10 +73,10 @@ namespace KarateSchoolApp.Work
                         conn.Open();
                         SqlCommand sqlcom = new SqlCommand(insertQuery, conn);
                         sqlcom.ExecuteNonQuery();
-                        
+
 
                     }
-                    catch(SqlException ex)
+                    catch (SqlException ex)
                     {
                         Label1.Text = ex.Message;
                     }
@@ -80,7 +84,7 @@ namespace KarateSchoolApp.Work
 
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
@@ -88,8 +92,8 @@ namespace KarateSchoolApp.Work
             dbcon = new KarateSchoolDataContext(connString);
 
             var resultUserId = (from item in dbcon.NetUsers
-                               where item.UserName == userName
-                               select item.UserID).Single();
+                                where item.UserName == userName
+                                select item.UserID).Single();
             userId = Convert.ToInt32(resultUserId);
             lblID.Text = userId.ToString();
             lblType.Text = userType;
@@ -110,16 +114,16 @@ namespace KarateSchoolApp.Work
             {
                 dateTime = DateTime.Parse(dateJoined);
             }
-            
-            
+
+
             string phone = txtPhone.Text.Trim();
             string email = txtEmail.Text.Trim();
             int id = Convert.ToInt32(lblID.Text);
             userType = lblType.Text;
-            if(userType == "Member")
+            if (userType == "Member")
             {
-                
-                
+
+
                 try
                 {
                     using (SqlConnection conn = new SqlConnection(connString))
@@ -145,13 +149,13 @@ namespace KarateSchoolApp.Work
                     Label1.Text = ex.Message;
                 }
             }
-            if(userType == "Instructor")
+            if (userType == "Instructor")
             {
                 txtDateJoined.Text = "N/A";
                 txtEmail.Text = "N/A";
                 try
                 {
-                    using(SqlConnection conn = new SqlConnection(connString))
+                    using (SqlConnection conn = new SqlConnection(connString))
                     {
                         string insertQuery = "INSERT INTO Instructor(InstructorID, InstructorFirstName, InstructorLastName, InstructorPhoneNumber)" +
                                             " VALUES('" + id + "', '" + firstName + "', '" + lastName + "', '" + phone + "')";
@@ -162,27 +166,27 @@ namespace KarateSchoolApp.Work
                             SqlCommand sqlcom = new SqlCommand(insertQuery, conn);
                             sqlcom.ExecuteNonQuery();
                         }
-                        catch(SqlException ex)
+                        catch (SqlException ex)
                         {
                             Label1.Text = ex.Message;
                         }
                         conn.Close();
                     }
                 }
-                catch(SqlException ex)
+                catch (SqlException ex)
                 {
                     Label1.Text = ex.Message;
                 }
             }
-            
+
             Refresh();
         }
 
         protected void btnDeleteID_Click(object sender, EventArgs e)
         {
-           
+
             int delete = Convert.ToInt32(txtDeleteId.Text);
-            
+
 
             string deleteType = "";
 
@@ -193,7 +197,7 @@ namespace KarateSchoolApp.Work
                                  where item.UserID == delete
                                  select item.UserType).Single();
             deleteType = resultMembers.ToString();
-            
+
             string temp = "";
             if (deleteType.Equals("Instructor"))
             {
@@ -216,10 +220,10 @@ namespace KarateSchoolApp.Work
                         conn.Open();
                         SqlCommand sqlcom = new SqlCommand(deleteQuery, conn);
                         sqlcom.ExecuteNonQuery();
-                        
+
                         SqlCommand sqlcom2 = new SqlCommand(deleteQuery2, conn);
                         sqlcom2.ExecuteNonQuery();
-                        
+
 
                     }
                     catch (SqlException ex)
@@ -234,18 +238,18 @@ namespace KarateSchoolApp.Work
                 Label1.Text = ex.Message;
             }
 
-            
+
         }
 
         protected void btnAssign_Click(object sender, EventArgs e)
         {
             int memberId = Convert.ToInt32(txtAssign.Text);
             int sectionId = Convert.ToInt32(txtSection.Text);
-            
+
             //Update
             try
             {
-                using(SqlConnection conn = new SqlConnection(connString))
+                using (SqlConnection conn = new SqlConnection(connString))
                 {
                     string updateQuery = "UPDATE Section SET Member_ID = '" + memberId + "' WHERE SectionID = '" + sectionId + "'";
                     try
@@ -255,14 +259,14 @@ namespace KarateSchoolApp.Work
                         sqlcom.ExecuteNonQuery();
 
                     }
-                    catch(SqlException ex)
+                    catch (SqlException ex)
                     {
                         Label1.Text = ex.Message;
                     }
                     conn.Close();
                 }
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 Label1.Text = ex.Message;
             }

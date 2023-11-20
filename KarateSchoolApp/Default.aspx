@@ -2,6 +2,18 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    
+    <main>
+        <div>
+            <section>
+                
+                <h1>Karate School</h1>
+                <br />
+                <br />
+
+                <br />
+                <br />
+            </section>
+        </div>
+    </main>
 
 </asp:Content>
