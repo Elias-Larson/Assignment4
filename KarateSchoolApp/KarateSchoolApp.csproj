@@ -195,6 +195,7 @@
     </Content>
     <Content Include="Work\Administrator.aspx" />
     <Content Include="Work\Style.css" />
+    <Content Include="Work\TEST.html" />
     <None Include="KarateSchool.dbml.layout">
       <DependentUpon>KarateSchool.dbml</DependentUpon>
     </None>
